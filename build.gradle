@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        //API를 어디서 받을지 선언해준다.
+        url "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+    }
+}
+
+dependencies {
+    implementation 'org.jetbrains:annotations:19.0.0'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation "org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT"   //스피곳 API
+}
