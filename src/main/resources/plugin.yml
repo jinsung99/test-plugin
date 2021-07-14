@@ -1,3 +1,8 @@
 name: TestPlugin
 version: 1.0
 main: com.example.TestPlugin.Main
+commands:
+  rtp:
+    description: change all players location
+    usage: /<command>
+    permission:

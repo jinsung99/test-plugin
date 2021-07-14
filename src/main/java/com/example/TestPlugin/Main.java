@@ -9,27 +9,30 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.example.TestPlugin.commands.RandomTeleportCommand;
+
 public class Main extends JavaPlugin implements Listener {
 
     ConsoleCommandSender console = Bukkit.getConsoleSender();
 
     @Override
-    public void onEnable() {
-
+    public void onEnable()
+    {
         console.sendMessage(ChatColor.AQUA + "[플러그인 활성화 중 입니다.]");
 
-        getServer().getPluginManager().registerEvents(this, this);
+        this.getServer().getPluginManager().registerEvents(this, this);
+        this.getCommand("rtp").setExecutor(new RandomTeleportCommand());
     }
 
     @Override
-    public void onDisable() {
-
+    public void onDisable()
+    {
         console.sendMessage( ChatColor.AQUA + "[플러그인 비활성화 중 입니다.]");
     }
 
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent e) {
-
+    public void onPlayerJoin(PlayerJoinEvent e)
+    {
         StringBuilder sb = new StringBuilder();
         sb
                 .append(ChatColor.GREEN)
@@ -41,8 +44,8 @@ public class Main extends JavaPlugin implements Listener {
     }
 
     @EventHandler
-    public void onPlayerQuit(PlayerQuitEvent e) {
-
+    public void onPlayerQuit(PlayerQuitEvent e)
+    {
         StringBuilder sb = new StringBuilder();
         sb
                 .append(ChatColor.RED)
