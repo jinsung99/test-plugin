@@ -1,11 +1,13 @@
 package com.example.TestPlugin.commands;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerTeleportEvent;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -21,6 +23,12 @@ public class RandomTeleportCommand implements CommandExecutor {
             @NotNull String[] args
     )
     {
+        if(!sender.isOp())
+        {
+            sender.sendMessage(ChatColor.RED + "당신은 이 명령어를 사용할 권한이 없습니다.");
+            return true;
+        }
+
         List<Player> playerList = this.getValidPlayerList();
         int size = playerList.size();
         if(size <= 1)
@@ -38,7 +46,10 @@ public class RandomTeleportCommand implements CommandExecutor {
         {
             playerList
                     .get(i)
-                    .teleport(originLocations.get(teleportSeed[i]));
+                    .teleport(
+                            originLocations.get(teleportSeed[i]),
+                            PlayerTeleportEvent.TeleportCause.PLUGIN
+                    );
         }
 
         return true;

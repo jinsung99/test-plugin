@@ -27,7 +27,7 @@ public class Main extends JavaPlugin implements Listener {
     @Override
     public void onDisable()
     {
-        console.sendMessage( ChatColor.AQUA + "[플러그인 비활성화 중 입니다.]");
+        console.sendMessage(ChatColor.AQUA + "[플러그인 비활성화 중 입니다.]");
     }
 
     @EventHandler
@@ -40,7 +40,7 @@ public class Main extends JavaPlugin implements Listener {
                 .append(ChatColor.WHITE)
                 .append(e.getPlayer().getDisplayName());
 
-        e.setJoinMessage(  sb.toString()  );
+        e.setJoinMessage(sb.toString());
     }
 
     @EventHandler
@@ -53,6 +53,6 @@ public class Main extends JavaPlugin implements Listener {
                 .append(ChatColor.WHITE)
                 .append(e.getPlayer().getDisplayName());
 
-        e.setQuitMessage(  sb.toString()  );
+        e.setQuitMessage(sb.toString());
     }
 }
