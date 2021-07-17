@@ -21,17 +21,15 @@ public class RandomTeleportCommand implements CommandExecutor {
             @NotNull Command command,
             @NotNull String label,
             @NotNull String[] args
-    )
-    {
-        if(!sender.isOp())
-        {
+    ) {
+        if (!sender.isOp()) {
             sender.sendMessage(ChatColor.RED + "당신은 이 명령어를 사용할 권한이 없습니다.");
             return true;
         }
 
         List<Player> playerList = this.getValidPlayerList();
         int size = playerList.size();
-        if(size <= 1)
+        if (size <= 1)
             return true;
 
         ArrayList<Location> originLocations = new ArrayList<Location>();
@@ -39,11 +37,10 @@ public class RandomTeleportCommand implements CommandExecutor {
                 IntStream.range(0, size).toArray()
         );
 
-        for(Player i : playerList)
+        for (Player i : playerList)
             originLocations.add(i.getLocation());
 
-        for(int i = 0; i < size; i++)
-        {
+        for (int i = 0; i < size; i++) {
             playerList
                     .get(i)
                     .teleport(
@@ -55,25 +52,23 @@ public class RandomTeleportCommand implements CommandExecutor {
         return true;
     }
 
-    private ArrayList<Player> getValidPlayerList()
-    {
+    private ArrayList<Player> getValidPlayerList() {
         Object[] playerList = Bukkit.getServer().getOnlinePlayers().toArray();
         ArrayList<Player> result = new ArrayList<Player>();
 
-        for(Object o: playerList)
-        {
-            if(o instanceof Player)
-                result.add((Player)o);
+        for (Object o : playerList) {
+            if (o instanceof Player)
+                result.add((Player) o);
         }
 
         return result;
     }
 
-    private int[] shuffle(int[] arr){
+    private int[] shuffle(int[] arr) {
 
-        for(int x = 0; x < arr.length; x++){
-            int i = (int)(Math.random()*arr.length);
-            int j = (int)(Math.random()*arr.length);
+        for (int x = 0; x < arr.length; x++) {
+            int i = (int) (Math.random() * arr.length);
+            int j = (int) (Math.random() * arr.length);
 
             int tmp = arr[i];
             arr[i] = arr[j];

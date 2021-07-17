@@ -12,8 +12,7 @@ public class Main extends JavaPlugin {
     ConsoleCommandSender console = Bukkit.getConsoleSender();
 
     @Override
-    public void onEnable()
-    {
+    public void onEnable() {
         console.sendMessage(ChatColor.AQUA + "[플러그인 활성화 중 입니다.]");
 
         new EventListener(this);
@@ -21,8 +20,7 @@ public class Main extends JavaPlugin {
     }
 
     @Override
-    public void onDisable()
-    {
+    public void onDisable() {
         console.sendMessage(ChatColor.AQUA + "[플러그인 비활성화 중 입니다.]");
     }
 }

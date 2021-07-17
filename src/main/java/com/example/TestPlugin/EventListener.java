@@ -13,8 +13,7 @@ public class EventListener implements Listener {
     }
 
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent e)
-    {
+    public void onPlayerJoin(PlayerJoinEvent e) {
         StringBuilder sb = new StringBuilder();
         sb
                 .append(ChatColor.GREEN)
@@ -26,8 +25,7 @@ public class EventListener implements Listener {
     }
 
     @EventHandler
-    public void onPlayerQuit(PlayerQuitEvent e)
-    {
+    public void onPlayerQuit(PlayerQuitEvent e) {
         StringBuilder sb = new StringBuilder();
         sb
                 .append(ChatColor.RED)
